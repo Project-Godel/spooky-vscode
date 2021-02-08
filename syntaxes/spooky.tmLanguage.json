@@ -1,0 +1,149 @@
+{
+	"uuid": "4fb0a426-0e2d-4c28-81ec-aa1f9955ed08",
+	"patterns": [
+		{
+			"include": "#code"
+		}
+	],
+	"name": "Spooky",
+	"scopeName": "source.spooky",
+	"fileTypes":
+	 [
+		"spooky"
+	],
+	"repository": {
+		"code": {
+			"patterns": [
+				{
+					"include": "#constants"
+				},
+				{
+					"include": "#keywords"
+				},
+				{
+					"include": "#declarations"
+				},
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#strings"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"match": "\\b(false|true)\\b",
+					"name": "constant.language.spooky"
+				},
+				{
+					"match": "\\b([0-9]+)\\b",
+					"name": "constant.numeric.spooky"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"end": "\"",
+					"begin": "\"",
+					"patterns": [
+						{
+							"match": "\\\\([nr\\\\\"])",
+							"name": "constant.character.escape.spooky"
+						},
+						{
+							"match": "\\\\.",
+							"name": "invalid.illegal.unrecognized-string-escape.spooky"
+						}
+					],
+					"name": "string.quoted.double.spooky"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"match": "\\b(else|if|while|for|return)\\b",
+					"name": "keyword.control.flow.spooky"
+				},
+				{
+					"match": "(==?|<=|>=|<|(?!\\-)>)",
+					"name": "keyword.operator.comparison.spooky"
+				},
+				{
+					"match": "(\\-(?!>)|\\+|\\*|/(?![/])|%)",
+					"name": "keyword.operator.arithmetic.spooky"
+				}
+			]
+		},
+		"declarations": {
+			"patterns": [
+				{
+					"match": "\\b(func)\\b\\s*([A-Za-z_][A-Za-z0-9_]*)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.declaration.spooky"
+						},
+						"2": {
+							"name": "entity.name.function.declaration"
+						}
+					}
+				},
+				{
+					"match": "\\b(extern)\\b\\s*([A-Za-z_][A-Za-z0-9_]*)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.declaration.spooky"
+						},
+						"2": {
+							"name": "entity.name.function.declaration"
+						}
+					}
+				},
+				{
+					"match": "\\s*([A-Za-z_][A-Za-z0-9_]*)\\b\\(",
+					"captures": {
+						"1": {
+							"name": "entity.name.function.declaration"
+						}
+					}
+				},
+				{
+					"match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\s*:\\s*([A-Za-z_][A-Za-z0-9_]*)\\b",
+					"captures": {
+						"1": {
+							"name": "variable.other.declaration.scala"
+						},
+						"2": {
+							"name": "entity.name.class.declaration"
+						}
+					}
+				},
+				{
+					"match": "->\\s*([A-Za-z_][A-Za-z0-9_]*)\\b",
+					"captures": {
+						"1": {
+							"name": "entity.name.class.declaration"
+						}
+					}
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"end": "\\n",
+					"begin": "//",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.spooky"
+						}
+					},
+					"name": "comment.line.double-slash.spooky"
+				}
+			]
+		}
+	}
+}

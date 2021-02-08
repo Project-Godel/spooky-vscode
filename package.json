@@ -1,0 +1,26 @@
+{
+    "name": "spooky",
+    "displayName": "spooky",
+    "description": "Language support for Spooky (https://github.com/jsannemo/spooky-vm).",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.53.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "publisher": "jsannemo",
+    "contributes": {
+        "languages": [{
+            "id": "spooky",
+            "aliases": ["Spooky", "spooky"],
+            "extensions": [".spooky"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "spooky",
+            "scopeName": "source.spooky",
+            "path": "./syntaxes/spooky.tmLanguage.json"
+        }]
+    }
+}
