@@ -6,21 +6,78 @@
     "engines": {
         "vscode": "^1.53.0"
     },
+    "dependencies": {
+        "path": "^0.12.7",
+        "shell-escape": "^0.2.0",
+        "vscode-languageclient": "^7.0.0",
+        "which": "^2.0.2"
+    },
+    "devDependencies": {
+        "@types/node": "12.12.2",
+        "@types/shell-escape": "^0.2.0",
+        "@types/vscode": "^1.52.0",
+        "@types/which": "^2.0.0"
+    },
     "categories": [
         "Programming Languages"
     ],
     "publisher": "jsannemo",
+    "repository": {
+        "url": "https://github.com/jsannemo/spooky-vscode.git",
+        "type": "git"
+    },
     "contributes": {
-        "languages": [{
-            "id": "spooky",
-            "aliases": ["Spooky", "spooky"],
-            "extensions": [".spooky"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "spooky",
-            "scopeName": "source.spooky",
-            "path": "./syntaxes/spooky.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "spooky",
+                "aliases": [
+                    "Spooky",
+                    "spooky"
+                ],
+                "extensions": [
+                    ".spooky"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "spooky",
+                "scopeName": "source.spooky",
+                "path": "./syntaxes/spooky.tmLanguage.json"
+            }
+        ],
+        "commands": [
+            {
+                "command": "spooky.compile",
+                "title": "Spooky: Compile File"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "when": "editorLangId == spooky",
+                    "command": "spooky.compile",
+                    "group": "navigation"
+                }
+            ],
+            "commandPalette": [
+                {
+                    "command": "spooky.compile",
+                    "when": "editorLangId == spooky"
+                }
+            ]
+        }
+    },
+    "activationEvents": [
+        "onLanguage:spooky",
+        "onCommand:spooky.compile"
+    ],
+    "main": "./out/extension.js",
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "lint": "eslint . --ext .ts,.tsx",
+        "watch": "tsc -watch -p ./"
     }
 }
