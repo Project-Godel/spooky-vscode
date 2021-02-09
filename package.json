@@ -2,7 +2,7 @@
     "name": "spooky",
     "displayName": "spooky",
     "description": "Language support for Spooky (https://github.com/jsannemo/spooky-vm).",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "engines": {
         "vscode": "^1.53.0"
     },
@@ -23,7 +23,7 @@
     ],
     "publisher": "jsannemo",
     "repository": {
-        "url": "https://github.com/jsannemo/spooky-vscode.git",
+        "url": "https://github.com/project-godel/spooky-vscode.git",
         "type": "git"
     },
     "contributes": {

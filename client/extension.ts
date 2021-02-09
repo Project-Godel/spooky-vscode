@@ -18,8 +18,8 @@ export async function activate(context: ExtensionContext) {
         compile(fileUri.path);
     }));
     return {
-      "getSpookyPath": () => getSpookyPath,
-      "getJavaPath": () => getJavaPath,
+      getSpookyPath() { return getSpookyPath() },
+      getJavaPath() { return javaPath },
     };
 }
 
