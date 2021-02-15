@@ -73,6 +73,10 @@
 					"name": "keyword.operator.comparison.spooky"
 				},
 				{
+					"match": "(&&|\\|\\|)",
+					"name": "keyword.operator.comparison.spooky"
+				},
+				{
 					"match": "(\\-(?!>)|\\+|\\*|/(?![/])|%)",
 					"name": "keyword.operator.arithmetic.spooky"
 				}
